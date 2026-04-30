@@ -13,8 +13,8 @@
 //   node src/calculator.js div 10 2  -> 5
 
 function printUsageAndExit(code = 1) {
-  console.error('Usage: node src/calculator.js <operation> <a> <b>\n');
-  console.error('Operations: add, sub, mul, div');
+  console.error('Usage: node src/calculator.js <operation> <a> <b>');
+  console.error('Operations: add, sub, mul, div, mod, pow, sqrt');
   process.exit(code);
 }
 
@@ -27,6 +27,14 @@ function add(a, b) { return a + b; }
 function sub(a, b) { return a - b; }
 function mul(a, b) { return a * b; }
 function div(a, b) { return a / b; }
+function modulo(a, b) { return a % b; }
+function power(base, exponent) { return Math.pow(base, exponent); }
+function squareRoot(n) {
+  if (n < 0) {
+    throw new Error('square root of negative number');
+  }
+  return Math.sqrt(n);
+}
 
 function main(argv) {
   if (argv.length < 1) {
